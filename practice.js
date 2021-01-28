@@ -321,6 +321,10 @@ console.log(result);
 // To test, invoke fullName with your first name, last name and the welcomeMessage function as arguments.
 
 // Create function fullName here
+function fullName(firstName, lastName, callback){
+  let output =  callback(firstName, lastName);
+  return output
+}
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function welcomeMessage(first, last) {
@@ -329,7 +333,8 @@ function welcomeMessage(first, last) {
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
 // Invoke fullName below
-
+result = fullName('Mike', 'Flanders', welcomeMessage)
+console.log(result);
 //////////////////PROBLEM 25////////////////////
 
 // Do not edit the code below.
@@ -340,6 +345,11 @@ let age = 'TBD'
 
 // If the age is below 21, return the invocation of the first callback
 // If the age is 21 or greater, return the invocation of the second callback
+function canDrink(age, callbackYoung, callbackOld){
+  let innerResult = age < 21 ? callbackYoung() : callbackOld()
+  return innerResult
+}
+
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function drinkSoda() {
@@ -350,7 +360,11 @@ function drinkAlcohol() {
   return 'Drink responsibly!'
 }
 
+
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
+
+let myDrinkingAnswer = canDrink(10, drinkSoda, drinkAlcohol);
+console.log(myDrinkingAnswer);
 
 // Create function canDrink here
 
@@ -362,3 +376,18 @@ function drinkAlcohol() {
 // This function should return a operator invoked with the appropriate arguments.
 
 //Code here
+function add(num1, num2){
+  return num1 + num2
+}
+
+function multiply(num1, num2){
+  return num1 * num2
+}
+
+function math(num1, num2, operator){
+  let innerResult = operator(num1, num2);
+  return innerResult
+}
+
+result = math(5, 6, multiply);
+console.log(result);
