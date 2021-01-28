@@ -4,6 +4,7 @@
 
 function first(arr) {
   //Code here
+  return arr[0];
 }
 
 //////////////////PROBLEM 2////////////////////
@@ -12,6 +13,7 @@ function first(arr) {
 
 function length(arr) {
   //Code here
+  return arr.length;
 }
 
 //////////////////PROBLEM 3////////////////////
@@ -20,6 +22,7 @@ function length(arr) {
 
 function last(arr) {
   //Code here
+  return arr[arr.length - 1];
 }
 
 //////////////////PROBLEM 4////////////////////
@@ -28,6 +31,7 @@ function last(arr) {
 
 function addItem(array, number) {
   //Code here
+  array.push(number);
   return array
 }
 
@@ -36,7 +40,8 @@ function addItem(array, number) {
 // Modify the function below to remove the last item of the array being passed in
 
 function removeLast(array) {
-  //Code here
+  //Code here 
+  array.pop();
   return array
 }
 
@@ -46,6 +51,7 @@ function removeLast(array) {
 
 function removeFirst(array) {
   //Code here
+  array.splice(0,1);
   return array
 }
 
@@ -56,6 +62,7 @@ function removeFirst(array) {
 function maker() {
   var numbers = []
   for (var i = 0; i <= 25; i++) {
+    numbers.push(i);
     //Code here
   }
 
@@ -70,7 +77,9 @@ function count31() {
   var numbers = []
 
   //Code here
-
+for (var i = 0; i <= 31; i++) {
+  numbers.push(i);
+}
   return numbers
 }
 
@@ -83,10 +92,10 @@ function count31() {
 // backWards( [ 'first', 'last' ] ); -> [ 'last', 'first' ]
 
 function backWards(arr) {
-  var newArray = []
-
+  var newArray = [];
   for (var i = arr.length - 1; i >= 0; i--) {
     // code here
+    newArray.push(arr[i]);
   }
 
   return newArray
@@ -101,6 +110,7 @@ function backWards(arr) {
 
 function findInArray(arr, value) {
   // code here
+  return arr.indexOf(value) != -1;
 }
 
 //////////////////PROBLEM 11////////////////////
@@ -111,10 +121,11 @@ function findInArray(arr, value) {
 // addTen([1,2,3,4]); -> [11,12,13,14]
 
 function addTen(arr) {
-  var newArr = []
+  var newArr = [10, 20,30]
 
   for (var i = 0; i < arr.length; i++) {
     // code here
+    newArr[i] += 10;
   }
 
   return newArr
@@ -131,7 +142,7 @@ function personName() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code here
+  return  person.firstName; // Code here
 }
 
 //////////////////PROBLEM 13////////////////////
@@ -145,7 +156,7 @@ function personLocation() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code Here
+  return person['location'];  // Code Here
 }
 
 //////////////////PROBLEM 14////////////////////
@@ -153,7 +164,7 @@ function personLocation() {
 //Use dot notation to add a new property to the object backpack called frontPocket with the value equal to "compass".
 
 const backpack = {}
-
+backpack.frontPocket = "compass";
 // Code Here
 
 //////////////////PROBLEM 15////////////////////
@@ -161,6 +172,7 @@ const backpack = {}
 //Use bracket notation to add a material property to the box object.  Set it's value equal to the string 'cardboard'
 
 const box = {}
+box['material'] = 'cardboard';
 
 // Code Here
 
@@ -172,7 +184,7 @@ const person = {}
 
 person['firstName'] = 'sally'
 
-//code here
+let userFirstName = person.firstName;  //code here
 
 //////////////////PROBLEM 17////////////////////
 
@@ -186,6 +198,11 @@ person['firstName'] = 'sally'
 // };
 
 function updateUser(user) {
+  user.name = 'Ryan';
+  user.pwHash = 'superSafe';
+  user.username = 'ryan2020';
+  return user;
+  
   // Code Here
 }
 
@@ -195,6 +212,8 @@ function updateUser(user) {
 
 function updateEmail(obj, str) {
   // Code here
+  obj.email = str;
+  return obj;
 }
 
 //////////////////PROBLEM 19////////////////////
@@ -202,12 +221,23 @@ function updateEmail(obj, str) {
 // Write a function called isOldEnough that takes a person obj and checks the age property to see if the person is old enough to enter the club.  If they are 21 or older return true else return false.
 
 // Code here
-
+function isOldEnough(person){
+  if (person.age >= 21){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 //////////////////PROBLEM 20////////////////////
 
 //Create a function called addRole that takes in a user object as the first parameter and a string as the second parameter.  The string will represent the user's new role in the system (i.e. admin, creator, editor, visitor). Create a new property on the user object called "role" and assign the passed in string to it, then return the updated object.
 
 // Code here
+function addRole(user, string){
+  user.role = string;
+  return user;
+}
 
 ///////////////////////////////////////////////////////
 
@@ -245,6 +275,8 @@ function schoolStatus(status) {
   // } else {
   //   return 'No more video games!'
   // }
+  let statVariable = status == 'Good' ? 'Wow, great job kiddo!' : 'No more video games!'
+  return statVariable;
 }
 
 //////////////////PROBLEM 22////////////////////
@@ -257,6 +289,8 @@ function schoolStatus(status) {
 
 function messageBasedOnAge(age) {
   //code here
+  let answer = age < 18 ? 'Not quite old enough, sorry.' : age === 18 ? 'Congrats on being an adult!' : 'Somebody is really getting up there, huh?'
+  return answer;
 }
 
 //////////////////PROBLEM 23////////////////////
@@ -265,13 +299,19 @@ function messageBasedOnAge(age) {
 // To see it working, invoke outerFn at the bottom, passing in the InnerFn as the callback. You should now see "The innerFn is a callback!" in the console.
 
 // Create function here
+function outerFn(callback){
+  //console.log('I made it this far ');
+  let innerResult = callback();
+  return innerResult
 
+}
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function innerFn() {
   return 'The innerFn is a callback!'
 }
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
-
+let result = outerFn(innerFn);
+console.log(result);
 // Invoke function here
 
 //////////////////PROBLEM 24////////////////////
